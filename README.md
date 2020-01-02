@@ -1,7 +1,9 @@
 # Travelling-Salesman-Estimate
 ### Input format
 Sequence of coordinate pairs (lon, lat) in input.txt file located nearby the executable
+
 Example:
+
 44.8783715 39.190172
 44.6098268 40.1006527
 51.9582681 85.9602957
@@ -11,5 +13,7 @@ Example:
 
 ### Output format
 The length of the hamiltonial path in meters in stdout
+
 Example:
+
 97766.7 is the estimated hamiltonial path length
