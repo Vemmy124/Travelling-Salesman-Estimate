@@ -1,25 +1,29 @@
 #pragma once
 
-#include "../Delaunay-Triangulation/triangulation.hpp"
-#include "../models/models.hpp"
+#include "../Delaunay-Triangulation/scanline_triangulation.hpp"
+#include "../models/geometry.hpp"
 
-dataT GetLonLatDistance(const Edge& edge, const std::vector<CVec2>& points);
+using geometry::Edge;
+using geometry::Graph;
+using geometry::Vector2D;
+
+double GetLonLatDistance(const Edge& edge, const std::vector<Vector2D>& points);
 
 class KruskalAlgorithm {
  public:
-  KruskalAlgorithm(models::Graph graph, std::vector<CVec2> points) :
+  KruskalAlgorithm(Graph graph, std::vector<Vector2D> points) :
       graph_(std::move(graph)), points_(std::move(points)),
       parent_(points_.size()) {
     for (int i = 0; i < parent_.size(); ++i) {
       parent_[i] = i;
     }
   }
-  models::Graph Solve();
+  Graph Solve();
  private:
   std::vector<Edge> get_edge_graph() const;
-  int find_root_update(int v);
+  int find_update_root(int v);
 
-  models::Graph graph_;
-  std::vector<CVec2> points_;
+  Graph graph_;
+  std::vector<Vector2D> points_;
   std::vector<int> parent_;
 };
