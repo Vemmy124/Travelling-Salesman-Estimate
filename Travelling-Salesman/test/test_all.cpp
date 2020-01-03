@@ -20,6 +20,12 @@ TEST(Triangulation, FileInput2) {
     FileTestBody(std::move(in));
 }
 
+TEST(Triangulation, FileInput3) {
+    std::ifstream in;
+    in.open("../test/tests/003");
+    FileTestBody(std::move(in));
+}
+
 auto GetPointsFromStream(std::ifstream& in) {
     std::vector<geometry::Vector2D> points;
 

@@ -2,7 +2,7 @@
 
 geometry::Graph ExtractGraph(const geometry::Triangulation& triangulation, const std::vector<Vector2D>& points) {
     geometry::Graph result(points.size());
-    for (auto& [edge, _] : triangulation) {
+    for (const auto& [edge, _] : triangulation) {
         result[edge.v1].emplace_back(edge.v2);
         result[edge.v2].emplace_back(edge.v1);
     }
