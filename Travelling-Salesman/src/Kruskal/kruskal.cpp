@@ -10,7 +10,8 @@ double DegToRadians(const double& phi) {
 
 const double R = 6378.1;
 
-double GetLonLatDistance(const Edge& edge, const std::vector<Vector2D>& points) {
+double GetLonLatDistance(const Edge& edge,
+                         const std::vector<Vector2D>& points) {
   double x1 = DegToRadians(points[edge.v1].x);
   double x2 = DegToRadians(points[edge.v2].x);
   double dx = DegToRadians(points[edge.v1].x - points[edge.v2].x);
@@ -49,9 +50,12 @@ int KruskalAlgorithm::find_update_root(int v) {
 
 Graph KruskalAlgorithm::Solve() {
   auto edge_graph = get_edge_graph();
-  sort(edge_graph.begin(), edge_graph.end(), [this](const Edge& fst, const Edge& snd) -> bool {
-    return GetLonLatDistance(fst, points_) < GetLonLatDistance(snd, points_);
-  });
+  sort(edge_graph.begin(),
+       edge_graph.end(),
+       [this](const Edge& fst, const Edge& snd) -> bool {
+         return GetLonLatDistance(fst, points_)
+             < GetLonLatDistance(snd, points_);
+       });
 
   std::vector<Edge> minimal_span_tree;
   for (const auto& edge : edge_graph) {

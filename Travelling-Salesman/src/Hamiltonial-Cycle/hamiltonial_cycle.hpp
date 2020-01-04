@@ -10,5 +10,6 @@
 
 using geometry::Vector2D;
 
-double GetRouteLength(const std::vector<int>& route, const std::vector<Vector2D>& points);
+double GetRouteLength(const std::vector<int>& route,
+                      const std::vector<Vector2D>& points);
 std::vector<int> GetHamiltonialCycle(std::vector<Vector2D>& points);

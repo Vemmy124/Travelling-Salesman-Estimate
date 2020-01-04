@@ -26,8 +26,8 @@ int main() {
 
   auto points = ReadPointsFromStdin();
   auto sequence = GetHamiltonialCycle(points);
-  std::cout << std::fixed << std::setprecision(1) << GetRouteLength(sequence, points)
-    << " is the estimated hamiltonial path length" << std::endl;
+  std::cout << std::setprecision(9) << GetRouteLength(sequence, points)
+            << "km is the estimated hamiltonial path length" << std::endl;
 
   return 0;
 }

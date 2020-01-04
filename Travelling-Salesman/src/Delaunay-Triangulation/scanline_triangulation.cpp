@@ -41,7 +41,7 @@ bool DelaunayBuilder::CheckDelaunayCondition(
   const auto Sb = (b.x - r.x) * (b.x - l.x) + (b.y - r.y) * (b.y - l.y);
   if (Sa > -eps && Sb > -eps) {
     return true;
-  } 
+  }
   if (!(Sa < 0 && Sb < 0)) {
     auto Sc = CrossProduct(t - r, t - l);
     auto Sd = CrossProduct(b - r, b - l);
@@ -84,8 +84,10 @@ void DelaunayBuilder::FixTriangulation(int left, int right, int outer) {
     // Иначе перестраиваем триангуляцию в четырехугольнике
     graph_[Edge{right, outer}].Replace(left, inner);
     graph_[Edge{left, outer}].Replace(right, inner);
-    graph_[Edge{std::min(inner, left), std::max(inner, left)}].Replace(right, outer);
-    graph_[Edge{std::min(inner, right), std::max(inner, right)}].Replace(left, outer);
+    graph_[Edge{std::min(inner, left), std::max(inner, left)}].Replace(right,
+                                                                       outer);
+    graph_[Edge{std::min(inner, right), std::max(inner, right)}].Replace(left,
+                                                                         outer);
 
     graph_.erase(Edge{std::min(left, right), std::max(left, right)});
 
