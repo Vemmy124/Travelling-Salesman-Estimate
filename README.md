@@ -18,7 +18,7 @@ Running tests from build directory (gtest must be installed):
 make test
 ./test
 ```
-
+(Test 003 includes the geolocation of all russian cities)
 ### Input format
 Sequence of coordinate pairs (lon, lat) in input.txt file located nearby the executable
 
