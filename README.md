@@ -8,15 +8,15 @@ cd TSE/Travelling-Salesman
 mkdir build
 cd build
 cmake ..
-make travelling_salesman
+make Travelling_salesman
 (put input.txt as shown later)
-./travelling_salesman
+./Travelling_salesman
 ```
 
 Running tests from build directory (gtest must be installed):
 ```
-make test
-./test
+make Test
+./Test
 ```
 (Test 003 includes the geolocation of all russian cities)
 ### Input format
