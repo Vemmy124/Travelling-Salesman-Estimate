@@ -1,6 +1,6 @@
 # Travelling-Salesman-Estimate
 ### Description
-This code estimates the hamiltonial cycle on the Earth coordinates (lon, lat), so it uses spherical distance between points. Firstly, the Delaunay triangulation is built (taken from my [post on habr](https://habr.com/ru/post/445048/)). Then we build a minimal spanning tree on the abovementioned triangulation via Kruskal algorithm and finally obtain the estimate for the hamiltonial cycle with DFS on a tree (also random shuffling the order of edges in the tree logn times). That gives us a 2x weight approximation in O(nlogn) complexity.
+This code estimates the hamiltonial cycle on the Earth coordinates (lon, lat), so it uses spherical distance between points. Firstly, the Delaunay triangulation is built (taken from my [post on habr](https://habr.com/ru/post/445048/)). Then we build a minimal spanning tree on the abovementioned triangulation via Kruskal algorithm and finally obtain the estimate for the hamiltonial cycle with DFS on a tree. That gives us a 2x weight approximation in O(nlogn) complexity.
 ### Build
 ```
 git clone ... TSE
