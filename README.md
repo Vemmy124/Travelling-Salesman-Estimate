@@ -4,7 +4,7 @@ This code estimates the hamiltonial cycle on the Earth coordinates (lon, lat). F
 ### Build
 ```
 git clone ... TSE
-cd TSE
+cd TSE/Travelling-Salesman
 mkdir build
 cd build
 cmake ..
