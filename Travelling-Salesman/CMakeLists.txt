@@ -12,8 +12,6 @@ add_executable(Travelling_Salesman
         src/models/geometry.cpp
         )
 
-# Uncomment for gtest
-
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 

@@ -38,11 +38,11 @@ double GetRouteLength(const std::vector<int>& route, const std::vector<Vector2D>
     return result;
 }
 
-std::vector<int> GetHamiltonialCycle(std::vector<Vector2D> points) {
+std::vector<int> GetHamiltonialCycle(std::vector<Vector2D>& points) {
     auto triangulation_solver = geometry::DelaunayBuilder::Create(std::move(points));
 
     auto triangulation = triangulation_solver->Get();
-    points = triangulation.points;
+    points = std::move(triangulation.points);
 
     auto graph = ExtractGraph(triangulation.graph, points);
 

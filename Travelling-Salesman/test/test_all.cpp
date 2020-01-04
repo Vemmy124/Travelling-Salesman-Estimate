@@ -80,9 +80,12 @@ std::vector<int> BruteHamiltonial(const std::vector<geometry::Vector2D>& points)
 void FileTestBody(std::ifstream&& in) {
     auto points = GetPointsFromStream(in);
     auto sequence = GetHamiltonialCycle(points);
-    auto best_sequence = BruteHamiltonial(points);
-    std::cout << GetRouteLength(sequence, points) << " found length" << std::endl;
-    std::cout << GetRouteLength(best_sequence, points) << " best length" << std::endl;
+    std::cout << std::fixed << std::setprecision(1)
+        << GetRouteLength(sequence, points) << " found length" << std::endl;
+    if (points.size() < 12) {
+        auto best_sequence = BruteHamiltonial(points);
+        std::cout << GetRouteLength(best_sequence, points) << " best length" << std::endl;
+    }
 }
 
 int main(int argc, char *argv[]) {
