@@ -8,21 +8,57 @@
 
 void FileTestBody(std::ifstream&& in);
 
-TEST(Triangulation, FileInput1) {
+TEST(UniVariate, EightPoints) {
   std::ifstream in;
-  in.open("../test/tests/001");
+  in.open("../test/tests/uniform/001");
   FileTestBody(std::move(in));
 }
 
-TEST(Triangulation, FileInput2) {
+TEST(UniVariate, NinePoints) {
   std::ifstream in;
-  in.open("../test/tests/002");
+  in.open("../test/tests/uniform/002");
   FileTestBody(std::move(in));
 }
 
-TEST(Triangulation, FileInput3) {
+TEST(UniVariate, TenPoints) {
   std::ifstream in;
-  in.open("../test/tests/003");
+  in.open("../test/tests/uniform/003");
+  FileTestBody(std::move(in));
+}
+
+TEST(UniVariate, BigInput) {
+  std::ifstream in;
+  in.open("../test/tests/uniform/004");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, EightPoints) {
+  std::ifstream in;
+  in.open("../test/tests/normal/001");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, NinePoints) {
+  std::ifstream in;
+  in.open("../test/tests/normal/002");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, TenPoints) {
+  std::ifstream in;
+  in.open("../test/tests/normal/003");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, BigInput) {
+  std::ifstream in;
+  in.open("../test/tests/normal/004");
+  FileTestBody(std::move(in));
+}
+
+TEST(RealData, RussianCities) {
+  std::ifstream in;
+  in.open("../test/tests/real/001");
   FileTestBody(std::move(in));
 }
 
@@ -76,9 +112,9 @@ std::vector<int> BruteHamiltonial(const std::vector<geometry::Vector2D>& points)
   Dfs(0, dist, points, visited, path, result, best_dist);
 
   // Check that the cycle is hamiltonial
-  assert(result.size() == points.size());
-  assert(std::unordered_set<int>(result.begin(), result.end()).size()
-             == result.size());
+  EXPECT_EQ(result.size(), points.size());
+  EXPECT_EQ(std::unordered_set<int>(result.begin(), result.end()).size(),
+      result.size());
 
   return result;
 }
@@ -86,12 +122,16 @@ std::vector<int> BruteHamiltonial(const std::vector<geometry::Vector2D>& points)
 void FileTestBody(std::ifstream&& in) {
   auto points = GetPointsFromStream(in);
   auto sequence = GetHamiltonialCycle(points);
+
+  auto found_length = GetRouteLength(sequence, points);
   std::cout << std::setprecision(9)
-            << GetRouteLength(sequence, points) << " found length" << std::endl;
+            << found_length << " found length" << std::endl;
   if (points.size() < 12) {
     auto best_sequence = BruteHamiltonial(points);
-    std::cout << GetRouteLength(best_sequence, points) << " best length"
-              << std::endl;
+    auto best_length = GetRouteLength(best_sequence, points);
+    std::cout << best_length <<
+    " best length\n"
+    "Precision " << found_length / best_length << std::endl;
   }
 }
 
