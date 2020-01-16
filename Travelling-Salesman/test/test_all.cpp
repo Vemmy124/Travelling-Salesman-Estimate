@@ -32,6 +32,42 @@ TEST(UniVariate, BigInput) {
   FileTestBody(std::move(in));
 }
 
+TEST(UniVariate, TenPoints1) {
+  std::ifstream in;
+  in.open("../test/tests/uniform/005");
+  FileTestBody(std::move(in));
+}
+
+TEST(UniVariate, TenPoints2) {
+  std::ifstream in;
+  in.open("../test/tests/uniform/006");
+  FileTestBody(std::move(in));
+}
+
+TEST(UniVariate, TenPoints3) {
+  std::ifstream in;
+  in.open("../test/tests/uniform/007");
+  FileTestBody(std::move(in));
+}
+
+TEST(UniVariate, TenPoints4) {
+  std::ifstream in;
+  in.open("../test/tests/uniform/008");
+  FileTestBody(std::move(in));
+}
+
+TEST(UniVariate, TenPoints5) {
+  std::ifstream in;
+  in.open("../test/tests/uniform/009");
+  FileTestBody(std::move(in));
+}
+
+TEST(UniVariate, TenPoints6) {
+  std::ifstream in;
+  in.open("../test/tests/uniform/010");
+  FileTestBody(std::move(in));
+}
+
 TEST(NormVariate, EightPoints) {
   std::ifstream in;
   in.open("../test/tests/normal/001");
@@ -56,9 +92,63 @@ TEST(NormVariate, BigInput) {
   FileTestBody(std::move(in));
 }
 
-TEST(RealData, RussianCities) {
+TEST(NormVariate, TenPoints1) {
+  std::ifstream in;
+  in.open("../test/tests/normal/005");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, TenPoints2) {
+  std::ifstream in;
+  in.open("../test/tests/normal/006");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, TenPoints3) {
+  std::ifstream in;
+  in.open("../test/tests/normal/007");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, TenPoints4) {
+  std::ifstream in;
+  in.open("../test/tests/normal/008");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, TenPoints5) {
+  std::ifstream in;
+  in.open("../test/tests/normal/009");
+  FileTestBody(std::move(in));
+}
+
+TEST(NormVariate, TenPoints6) {
+  std::ifstream in;
+  in.open("../test/tests/normal/010");
+  FileTestBody(std::move(in));
+}
+
+TEST(RealData, Russian_Cities_1112) {
   std::ifstream in;
   in.open("../test/tests/real/001");
+  FileTestBody(std::move(in));
+}
+
+TEST(RealData, German_Cities_366) {
+  std::ifstream in;
+  in.open("../test/tests/real/002");
+  FileTestBody(std::move(in));
+}
+
+TEST(RealData, USA_Cities_28890_extended) {
+  std::ifstream in;
+  in.open("../test/tests/real/003");
+  FileTestBody(std::move(in));
+}
+
+TEST(RealData, Japanese_Cities_78) {
+  std::ifstream in;
+  in.open("../test/tests/real/004");
   FileTestBody(std::move(in));
 }
 
